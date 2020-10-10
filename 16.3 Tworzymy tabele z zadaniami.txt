@@ -1,0 +1,35 @@
+create table ISSUESLISTS
+(
+ ID serial primary key,
+ NAME varchar(20) charset utf8
+);
+
+create table ISSUES
+(
+ ID serial primary key,
+ ISSUESLIST_ID int unsigned not null,
+ SUMMARY varchar(100),
+ DESCRIPTION varchar(300),
+ USER_ID_ASSIGNEDTO bigint unsigned not null,
+ FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(ID)
+);
+
+insert into ISSUESLISTS (NAME) 
+values ("To Do");
+insert into ISSUESLISTS (NAME) 
+values ("In Progress");
+insert into ISSUESLISTS (NAME)
+values ("Done");
+
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (1, "Zakupy poniedziałek", "Wybrać się do sklepu i zrobić zakupy", 1);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (1, "Zakupy wtorek", "Wybrać się do sklepu i zrobić zakupy", 1);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (2, "Naprawa samochodu", "Oddać samochód do mechanika", 2);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (2, "Praca", "Pójść do pracy", 1);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (3, "Odbiór samochodu", "Odebrać samochód od mechanika", 2);
+insert into ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+values (3, "Praca", "Pójść do pracy", 1);
