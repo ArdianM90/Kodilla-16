@@ -1,0 +1,10 @@
+insert into POSTS (USER_ID, BODY) values (2, "This is my new post.");
+update POSTS set BODY = "To delete" where BODY = "This is my new post.";
+
+insert into POSTS (USER_ID, BODY) values (3, "Mine is more new than yours.");
+update POSTS set BODY = "To delete" where BODY = "Mine is more new than yours.";
+
+insert into POSTS (USER_ID, BODY) values (4, "Mine post is the newest.");
+update POSTS set BODY = "To delete" where BODY = "Mine post is the newest.";
+
+delete from POSTS where BODY = "To delete";
